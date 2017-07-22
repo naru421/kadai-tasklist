@@ -11,4 +11,8 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def counts(user)
+    @count_taskfiles = user.taskfiles.count
+  end
+  
 end
