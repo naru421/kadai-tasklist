@@ -1,9 +1,19 @@
-<h1>メッセージ一覧</h1>
+<% if logged_in? %>
+  <p>ログイン完了ユーザ: <%= current_user.name %></p>
+  <h1>メッセージ一覧</h1>
 
-<ul>
-  <% @tasks.each do |task| %>
-    <li><%= link_to task.id, task %> : <%= task.status %> <%= task.content %></li>
-  <% end %>
-</ul>
-
-<%= link_to '新規メッセージの投稿', new_task_path, class: "btn btn-primary" %>
+  <ul>
+    <% @tasks.each do |task| %>
+      <li><%= link_to task.id, task %> : <%= task.status %> <%= task.content %></li>
+    <% end %>
+  </ul>
+  
+  <%= link_to '新規メッセージの投稿', new_task_path, class: "btn btn-primary" %>
+<% else %>
+  <div class="center jumbotron">
+    <div class="text-center">
+      <h1>Welcome to the Tasklist</h1>
+      <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
+    </div>
+  </div>
+<% end %>
