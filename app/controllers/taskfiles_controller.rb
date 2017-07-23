@@ -8,7 +8,7 @@ class TaskfilesController < ApplicationController
       flash[:success] = 'メッセージを投稿しました。'
       redirect_to root_url
     else
-      @taskfiles = current_user.taskfiles.order('created_at DESC').page(params[:page])
+      @taskfiles = current_user.feed_taskfiles.order('created_at DESC').page(params[:page])
       flash.now[:danger] = 'メッセージの投稿に失敗しました。'
       render 'toppages/index'
     end
