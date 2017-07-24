@@ -12,9 +12,7 @@ class ApplicationController < ActionController::Base
   end
   
   def counts(user)
-    @count_taskfiles = user.taskfiles.count
-    @count_followings = user.followings.count
-    @count_followers = user.followers.count
+    @count_tasks = user.tasks.count
   end
   
 end
